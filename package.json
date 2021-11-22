@@ -3,6 +3,7 @@
     "version": "2.0.3",
     "description": "node-fetch wrapper that adds support for cookie-jars",
     "main": "src/index.mjs",
+    "types": "@types/index.d.ts",
     "engines": {
         "node": ">=14.13.0"
     },
