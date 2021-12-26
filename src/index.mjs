@@ -79,6 +79,14 @@ async function fetch(cookieJars, url, options) {
             );
         const location = result.headers.get("location");
         options.redirect = "follow";
+
+        // if 301 or 302, change method to get
+        if (result.status === 301 || result.status === 302) {
+            delete options.body;
+            delete options.headers["Content-Type"];
+            options.method = "GET";
+        }
+
         return fetch(cookieJars, location, options);
     }
     return result;
