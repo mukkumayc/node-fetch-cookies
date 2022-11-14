@@ -83,7 +83,9 @@ async function fetch(cookieJars, url, options) {
         // if 301 or 302, change method to get
         if (result.status === 301 || result.status === 302) {
             delete options.body;
-            delete options.headers["Content-Type"];
+            if (options.headers) {
+                delete options.headers["Content-Type"];
+            }
             options.method = "GET";
         }
 
